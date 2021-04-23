@@ -3,11 +3,11 @@
 # but in tuple, there is no comprehension
 # instead of that, we can make a generator
 from sys import getsizeof
+import itertools
 
 # using list comprehension
 values = [x * 2 for x in range(100000)] # this gives us a list
 print('Size of list      :', getsizeof(values), 'bytes') # 412236 bytes
-
 # using generator
 values = (x * 2 for x in range(100000)) # this gives us a generator
 print('Size of Generator :', getsizeof(values), 'bytes') # 64 bytes
@@ -29,6 +29,19 @@ for i in values:
 r = range(120) # this is also a generator
 
 
+# Generator function with yield
+# all same to the normal function without yield
+# return exit the function, yield returns something and save function state for later use in iterator
+def pass_generator(min_length, max_length, all_keys):
+    for length in range(min_length, max_length+1):
+        for i in itertools.product(all_keys, repeat=length):
+            s = ''
+            for ii in range(0, length):
+                s += i[ii]
+            yield s
+
+for i in pass_generator(4, 6, '123'):
+    print(i)
 
 
 # *** UNPACKING ***
