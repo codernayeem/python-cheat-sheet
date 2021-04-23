@@ -17,7 +17,7 @@ Access to python in terminal can be different. You can use:
 * **python3**
 * **py**
 
-## Installing packages in python
+## Pip : Managing libraries in python
 Pip is the python package manager that comes with python
 * Install a package/library:
     * '**pip install django**' : install django latest version
@@ -27,7 +27,7 @@ Pip is the python package manager that comes with python
 * Uninstall a package/library:
     * '**pip uninstall django**' : uninstall django latest version
     * '**pip uninstall django flask fbs**' : uninstall more than one
-* List of all installed packages :
+* List of all installed packages/libraries:
     * '**pip list**' : Output installed packages
     * '**pip freeze**' : Output installed packages in requirements format
     * '**pip freeze > requirements.txt**' : Write installed packages in requirements.txt file
@@ -40,3 +40,12 @@ So, just **create a virtual environment**, **install your packages** and **activ
 * Activating venv :
     * '**tutorial-env\Scripts\activate.bat**' : This command will activate the venv for that terminal
     * In vs code, once venv is detected and selected, everytime the terminal opens, the activating command will be exicuted automaticly
+
+## Pipenv
+It is a mixed version of venv and pip. Pipenv includes two file that include all dependencies for that specific project: **pipfile**, **pipfile.lock**.
+* Using Pipenv :
+    * same as pip. Just enter **pipenv** instead of **pip**.
+* Some commands :
+    * '**pipenv shell**' : This command will activate the venv for that terminal
+    * '**pipenv --venv**' : Printing venv path
+    * In vs code, once pipvenv is detected and selected, everytime the terminal opens, the activating command will be exicuted automaticly
