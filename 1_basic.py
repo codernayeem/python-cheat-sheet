@@ -38,6 +38,7 @@ name, father_name = 'Kabir Khan', "Arif Hasan"
 qs1, qs2 = "Are you 'Sabbir'?", 'Are you "Kabir"?'
 qs1, qs2 = "Are you \"Menna\"?", 'Are you \'Tina\'?' 
 qs1, qs2 = '''Are you 'Tina' or "Mena"?''', """Are you 'Rana' or "Opu"?"""
+qs5 = r'Hi, "\" this is backslash.'  # raw string
 
 # String formatting
 s1 = 'My name is ' + name + f"Sorry, {father_name}!" 
@@ -166,6 +167,14 @@ say_hi(my_name, age, ignore=False, message="Helo")  # if you mismatch the serial
 say_hi(my_name, ignore=True, age=age)               # if you mismatch the serial, use param's name too
 
 
+# Type hint:
+def greeting(name: str) -> str:
+    # Type hints improve IDEs and linters. They make it much easier to statically reason about your code
+    # The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc
+    # here we defined name should be str and a str will be returned
+    return 'Hello ' + name
+greeting("Nayeem")
+
 
 # scope
 parent_name = "Anything" # this is a global variable
@@ -208,7 +217,7 @@ show_parent4("Long Lasting")
 # some keywords and their work:
 pass                    # this do nothing, used in any empty scope
 l = len('fdgdfg')       # return the length of any iterable
-s = sum(4, 78, 45.89)   # return the sum
+s = sum([4, 78, 45.89])   # return the sum
 unicode_of_a = ord('A') # 65 : Return the Unicode code point for a one-character string
 char_of_65 = chr(65)    # 'A' : Return a Unicode string of one character with ordina
 type_of_something = type("455") # returns the type of the data : string
