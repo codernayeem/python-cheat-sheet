@@ -10,9 +10,16 @@ class Point:
         self.x = x
         self.y = y
         self.z = z
-    
+
+    # Represet the object, There are more like : __format__(), __nonzero_(_, __sizeof__()
     def __str__(self):
-        # Represet the object, There are more like : __repr__, __format__, __nonzero__, __sizeof__
+        # printing object / making string, call this function
+        return f"Point({self.x}, {self.y}, {self.z})"
+    
+    def __repr__(self):
+        # called when using repr()
+        # called when printing object / making string, when __str__() not 
+        # as a alternative of __str__()
         return f"Point({self.x}, {self.y}, {self.z})"
 
     
