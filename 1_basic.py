@@ -70,6 +70,8 @@ my_name = None # my_name is not set yet
 # conditions
 # logical operators : and, or, not
 # we have ==, !=, >, <, =>, =< to check conditions
+# 'is' is also works like '==', but == : check same value, 'is' : check same object reference
+# using 'is' means, need to be same object instance
 # unlike other language, we can chain them like : 5 < n2 <= 100
 if n1 >= 4 and n2 < 4 and s1:
     print('Wow')
@@ -86,8 +88,12 @@ number1 = 56 if n2 == 0 and not s1 else n2 # if-else comprehension (true_value i
 # empty list, set, dict is also False
 a = "hi " and 56    # True
 a = True and 0      # False
-a = None or 0         # False
+a = None or 0       # False
 a = 475 > 45 or ""  # True
+
+a = 56 == 56.0        # True  | '==' only checks value
+a = 56 is 56.0        # False | 'is' checks value + objects
+
 
 
 # for loop
@@ -141,84 +147,7 @@ my_name = input("What is your name : ") # get data from console with qs
 age = int(input("Type a age : "))    # get an int
 
 
-# Functions
-def check_odd_number(n):
-    # this function return something (bool)
-    # if n = 3, then n % 2 = 1, and 1 means True
-    # if n = 4, then n % 2 = 0, and 0 means False
-    return True if n % 2 else False
-
-def say_hi(name, age, message="Welcome", ignore=False): # with some default value of paramaters
-    # this function return nothing / None
-    if ignore:
-        print("You ignored")
-    else:
-        print(f'{message} {name}! You are {age}')
-    # using if else comprehension
-    # print("You ignored" if ignore else f'{message} {name}! You are {age}')
-
-if check_odd_number(43):
-    print(43, " is a odd number")
-
-say_hi(my_name, age)                                # here, default value for other 2 params will used
-say_hi(my_name, age, "Helo")                        # overriding default values
-say_hi(my_name, age, "Helo", True)                  # overriding default values
-say_hi(my_name, age, ignore=False, message="Helo")  # if you mismatch the serial, use param's name too
-say_hi(my_name, ignore=True, age=age)               # if you mismatch the serial, use param's name too
-
-
-# Type hint:
-def greeting(name: str) -> str:
-    # Type hints improve IDEs and linters. They make it much easier to statically reason about your code
-    # The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc
-    # here we defined name should be str and a str will be returned
-    return 'Hello ' + name
-greeting("Nayeem")
-
-
-# scope
-parent_name = "Anything" # this is a global variable
-
-def show_parent1():
-    print(parent_name) # this will print the global variable
-
-def show_parent2():
-    parent_name = "Lovely" # this will not change global variable. it will create a new local variable
-    print(parent_name) # print local variable
-
-def show_parent3():
-    # we can use global variable in function
-    # but cannot modify them directly
-    # TO modify:
-    # method 1:
-    global parent_name
-    parent_name = "Something" # this will change the global variable
-    print(parent_name)
-    # method 2:
-    globals()['parent_name'] = "Something_Nothing" # this will change the global variable
-    print(globals()['parent_name'])
-
-def show_parent4(parent_name):
-    print(parent_name) # this parent_name is a local variable
-    # to use the global variable here
-    print(globals()['parent_name']) # this will print the global variable, not the local one
-
-    # A variable can not be both : parameter and global
-    # So you can not do that here:
-    # global parent_name
-    # print(parent_name)
-
-show_parent1()
-show_parent2()
-show_parent3()
-show_parent4("Long Lasting")
-
 
 # some keywords and their work:
-pass                    # this do nothing, used in any empty scope
-l = len('fdgdfg')       # return the length of any iterable
-s = sum([4, 78, 45.89])   # return the sum
-unicode_of_a = ord('A') # 65 : Return the Unicode code point for a one-character string
-char_of_65 = chr(65)    # 'A' : Return a Unicode string of one character with ordina
-type_of_something = type("455") # returns the type of the data : string
-del type_of_something   # delete the variable, 'type_of_something' is no longer a valid variable
+pass      # this do nothing, used in any empty scope
+del age   # delete the variable, 'parent_name' is no longer a valid variable
