@@ -1,11 +1,20 @@
 # the with satement is used to release extra things
 
+
+# without 'with'
+fl = open('8_with_satement.py', 'r')
+print("File opened")
+data = fl.read()
+fl.close()
+
 with open('8_with_satement.py', 'r') as fl:
     # fl.__enter__()   : called at the satrt of with satement
     # fl.__exit__()    : called at the end of with satement
     # at the end, 'with' will automaticly call 'file.close()'
     # do something with the fl
     print("File opened")
+    data = fl.read()
+
 
 with open('8_with_satement.py', 'r') as fl1, open('7_exceptions.py', 'r') as fl2: # multiple file opening
     print("2 File opened")
