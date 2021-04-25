@@ -104,9 +104,11 @@ lst.sort(key=get_price) # sort the list accordingly to the fruit price
 # without using extra function (using lamda function):
 lst.sort(key=lambda item: item[0])  # sort the list accordingly to the fruit name
 lst.sort(key=lambda item: item[1])  # sort the list accordingly to the fruit price
-# lambda function is just a one line simple function. It's defination ==> lambda parameter_list: expression
-# lambda function is used when we need a function once and as a argument to another function
 
+
+# reverse
+lst1.reverse()               # reverse elements in lst1
+new_lst1 = reversed(lst1)    # returns a new list reversing elements of lst1
 
 # map, filter
 prices = list(map(lambda item: item[1], lst)) # get the list of prices
