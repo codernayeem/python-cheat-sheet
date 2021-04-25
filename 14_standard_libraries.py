@@ -1,3 +1,18 @@
+# *********** math *************
+print('************* math module *************')
+import math, cmath
+# math : Standard math functionalities
+# cmath : math complex numbers
+
+print(math.e, math.pi, math.pow(5, 2))
+
+print(math.sin(math.radians(60)), math.degrees(math.acos(0.5)))
+print(math.log10(100), math.log(100, 10))
+print(math.isfinite(100), math.isnan(5))
+
+print(cmath.log10(5+4j)) # use cmath, for complex numbers
+
+
 # *** Working with Path ***
 print("************** Pathlib **************")
 
@@ -316,3 +331,31 @@ result = subprocess.run(['python', "-h"], capture_output=True, text=True) # capt
 print("returncode", result.returncode) # 0 means success | non-zero means error
 print("stderr", result.stderr)
 print("stdout", result.stdout)         # The output
+
+
+
+# Saving/Reading python object to binary file
+print('************ pickle ****************')
+
+import pickle
+
+marks = [56, 85, 93, 45, 76, 25, 36, 15, 75, 52]
+
+# Pickling a python object
+with open('data\\marks.pkl', 'wb') as fl:
+    pickle.dump(marks, fl)
+
+# jsut like json module, it has dump, dumps, load, loads methods
+
+# Unpacking a python object
+with open('data\\marks.pkl', 'rb') as fl:
+    marks2 = pickle.load(fl)
+
+print(marks2)
+
+
+
+# reduce function
+from functools import reduce
+reduce(print, [5, 6, 8, 7])
+# for each element in that iterator, print will be called with that element
